@@ -1,0 +1,855 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Witin Waters Rafting | White Nile Adventure</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
+
+  <style>
+    /* Prevent full-width blocks from causing horizontal scrollbar */
+    body {
+      overflow-x: hidden !important;
+      background-image: url("images/hero.jpg") !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+
+    #main {
+      background-color: transparent !important;
+      padding-top: 4rem !important;
+    }
+
+    /* ★ Ultimate Fix: Completely hide all extra horizontal white lines and pseudo-elements from Massively default ★ */
+    #main,
+    #main>*,
+    #main .posts,
+    .posts article,
+    #footer,
+    #header {
+      border: none !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    #main::before,
+    #main::after,
+    .posts::before,
+    .posts::after {
+      display: none !important;
+    }
+
+    /* 2. Trip Cards Grid */
+    #main .posts {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 4rem !important;
+      padding: 0 2rem !important;
+    }
+
+    /* 3. Card shared Glassmorphism style (opacity 0.65) */
+    #main .posts article {
+      width: 100% !important;
+      margin: 0 !important;
+      background-color: rgba(255, 255, 255, 0.65) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px;
+      transition: all 0.4s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      overflow: hidden;
+    }
+
+    #main .posts article:hover {
+      background-color: rgba(255, 255, 255, 1) !important;
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 4. Shared large block layout (Community Section style) */
+    .community-section {
+      margin-top: 5rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 4rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .community-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .media-item {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .media-item img,
+    .media-item video,
+    .media-item iframe {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ★ 5. New Why Witin Waters full-row layout (each item in its own block) ★ */
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      /* Large gap between blocks for visual breathing room */
+      padding: 3.5rem;
+      /* Inner padding for each card */
+      background-color: rgba(255, 255, 255, 0.65);
+      /* Independent glass background for each block */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .feature-row:hover {
+      background-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-row:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Alternate image/text layout for even rows */
+    .feature-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .feature-media {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-media iframe,
+    .feature-media img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border: none;
+      display: block;
+    }
+
+    .feature-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .feature-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      color: #212931;
+    }
+
+    .feature-text p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* 6. Shared full-width dark header (shared by About Us and Why sections) */
+    .about-section {
+      margin-top: 8rem;
+    }
+
+    .about-section>header {
+      text-align: center;
+      margin-bottom: 4rem;
+      background-color: rgba(0, 0, 0, 0.65) !important;
+      padding: 4rem 2rem !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      border-radius: 0 !important;
+    }
+
+    .about-section>header h2,
+    .about-section>header p {
+      color: #ffffff !important;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .about-section>header p {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Team member card grid layout */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      padding: 0 2rem;
+    }
+
+    .team-member {
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .team-member:hover {
+      background-color: rgba(255, 255, 255, 1);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-member img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: none;
+    }
+
+    .team-member h3 {
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .team-member .role {
+      color: #ffaa00;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 7. RWD Responsive Settings */
+    @media screen and (max-width: 980px) {
+
+      #main .posts,
+      .team-grid {
+        gap: 2rem !important;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-row {
+        flex-direction: column !important;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        padding: 2.5rem;
+      }
+
+      .feature-text {
+        text-align: center;
+      }
+
+      .community-section {
+        padding: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 736px) {
+
+      #main .posts,
+      .team-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .feature-row {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ★ Nav non-active item hover text turns blue ★ */
+    #nav ul.links li:not(.active) a:hover {
+      color: #4fa3e0 !important;
+    }
+
+    /* ★ Book Your Adventure hover text turns blue ★ */
+    .book-cta-btn:hover {
+      color: #4fa3e0 !important;
+      border-color: #4fa3e0 !important;
+      background: rgba(79, 163, 224, 0.08) !important;
+      transform: scale(1.03);
+    }
+
+    /* Gap between trips section and booking form */
+    #footer {
+      margin-top: 6rem !important;
+    }
+
+    /* ★ WhatsApp floating button effect ★ */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF !important;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 35px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-bottom: none !important;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.3);
+      color: #FFF !important;
+    }
+
+    @media screen and (max-width: 736px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 30px;
+      }
+    }
+
+    /* ★ 修正手機版 Travel Date 日期選擇器被壓扁的問題 ★ */
+    input[type="date"] {
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      min-height: 2.75rem !important;
+      /* 對齊表單其他欄位的高度 */
+      width: 100% !important;
+      display: block;
+      font-family: inherit;
+    }
+  </style>
+</head>
+
+<body class="is-preload">
+
+  <div id="wrapper" class="fade-in">
+
+    <div id="intro">
+      <h1>Witin Waters<br />
+        Rafting</h1>
+      <p>Born in Bujagali. Raised on the mighty White Nile.<br />
+        Whitewater • Adventure • Community</p>
+      <ul class="actions">
+        <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+      </ul>
+    </div>
+
+    <header id="header">
+      <a href="index.html" class="logo">Book Your Adventure</a>
+    </header>
+
+    <nav id="nav">
+      <ul class="links">
+        <li class="active"><a href="#trips-section" class="scrolly">Trips & Booking</a></li>
+        <li><a href="#why-section" class="scrolly">Why Witin Waters</a></li>
+        <li><a href="#about-section" class="scrolly">About Us / Our Team</a></li>
+        <li><a href="#footer" class="scrolly">Contact</a></li>
+        <li><a href="index2.html" style="color: #4fa3e0; font-weight: bold;">🌐 中文</a></li>
+      </ul>
+      <ul class="icons">
+        <li><a href="https://www.facebook.com/profile.php?id=100076788665963" target="_blank" rel="noopener noreferrer"
+            class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/basogawitin/" target="_blank" rel="noopener noreferrer"
+            class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+      </ul>
+    </nav>
+
+    <div id="main">
+
+      <section class="posts" id="trips-section">
+
+        <article>
+          <header>
+            <span class="date">Family Friendly</span>
+            <h2><a href="#footer" class="scrolly">Half-Day<br />
+                Flatwater Rafting</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour1.jpg" alt="" /></a>
+          <p>Perfect for families and beginners. Glide peacefully on calm waters and soak in the breathtaking natural
+            scenery of the Nile — relaxing, safe, and absolutely unforgettable.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Book Now</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span class="date">Most Popular</span>
+            <h2><a href="#footer" class="scrolly">Half-Day<br />
+                Whitewater Rafting</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour2.jpg" alt="" /></a>
+          <p>Our signature trip! Guided by expert leaders, tackle the iconic rapids of the White Nile and feel the
+            ultimate rush of the waves crashing around you.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Book Now</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span class="date">For Adrenaline Junkies</span>
+            <h2><a href="#footer" class="scrolly">Full-Day<br />
+                Extreme Rafting</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour3.jpg" alt="" /></a>
+          <p>Conquer every Class V rapid! This is the ultimate test of strength and courage, including a celebratory
+            lunch and drinks at the finish line.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Book Now</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span class="date">Ultimate Challenge</span>
+            <h2><a href="#footer" class="scrolly">Custom<br />
+                Guided Kayaking</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour4.jpg" alt="" /></a>
+          <p>Designed for all skill levels! With a professional guide by your side, paddle head-on against the wildest
+            waves and whirlpools the White Nile has to offer.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Book Now</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span class="date">Master the River</span>
+            <h2><a href="#footer" class="scrolly">Skill-Building<br />
+                Kayaking Lesson</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour5.jpg" alt="" /></a>
+          <p>From basic paddling to the Eskimo Roll. Whether you're a complete beginner or looking to advance, we have a
+            professional coach tailored just for you.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Sign Up Now</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span class="date">Freestyle & Surf</span>
+            <h2><a href="#footer" class="scrolly">Advanced<br />
+                Playboat Training</a></h2>
+          </header>
+          <a href="#footer" class="image fit scrolly"><img src="images/tour6.jpg" alt="" /></a>
+          <p>We take you to the most famous surf spots on the White Nile to practice! Whether beginner or expert,
+            everyone can find their perfect wave and endless fun here.</p>
+          <ul class="actions special">
+            <li><a href="#footer" class="button primary scrolly">Sign Up Now</a></li>
+          </ul>
+        </article>
+
+      </section>
+
+      <section id="why-section" class="about-section">
+
+        <header class="major">
+          <h2>Why Witin Waters?</h2>
+          <p>100% Local · Professional Safety · Ultimate Experience<br />We bring you the most honest, best-value, and
+            most unforgettable whitewater adventure on the White Nile</p>
+        </header>
+
+        <div class="features-wrapper" style="padding: 0 2rem;">
+
+          <div class="feature-row">
+            <div class="feature-media">
+              <iframe src="https://www.youtube-nocookie.com/embed/1hDilkr6K2A" allowfullscreen></iframe>
+            </div>
+            <div class="feature-text">
+              <h3>Push the Limits<br />Conquer Kalagala Falls</h3>
+              <p>We can arrange the wildest and most extreme custom routes on the White Nile! The person you see
+                fearlessly taking on the famous <strong>Kalagala Falls</strong> Class V rapid in the video is our own
+                Trip Leader — <strong>Witin himself</strong> — leading you to conquer the extreme with world-class
+                skill.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-row reverse">
+            <div class="feature-media">
+              <img src="images/why-local.jpg" alt="100% Local Rooted">
+            </div>
+            <div class="feature-text">
+              <h3>100% Local Rooted<br />Born in Bujagali</h3>
+              <p>We are a proudly local-run professional team, which means every dollar you spend flows 100% back to
+                directly support the Bujagali village community and the development of local youth.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-media">
+              <iframe src="https://www.youtube-nocookie.com/embed/ez6_Ftd3fps" allowfullscreen></iframe>
+            </div>
+            <div class="feature-text">
+              <h3>Best Safety Ratio<br />Unmatched Safety</h3>
+              <p>Guaranteed the best Safety Kayaker ratio at any price point! In the video, when a guest failed to
+                self-rescue after flipping, Witin reached and successfully rescued them within seconds. Safety is a line
+                we never compromise on.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reverse">
+            <div class="feature-media">
+              <img src="images/why-budget.jpg" alt="Flexible & Fair Pricing">
+            </div>
+            <div class="feature-text">
+              <h3>Your Budget, Your Way<br />Flexible Pricing</h3>
+              <p>Without the layers of markup from large commercial companies, we offer the most honest, transparent,
+                and highly flexible pricing. Whatever your needs are, we guarantee the most competitive value for money.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-media">
+              <img src="images/why-route.jpg" alt="Route">
+            </div>
+            <div class="feature-text">
+              <h3>No Shortcuts, Ever<br />Full River Guarantee</h3>
+              <p>We never cut corners! We provide the fairest and most transparent route planning — we will never
+                secretly shorten your trip. Every single minute on the water is packed with value. We guarantee the full
+                experience, no regrets.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reverse">
+            <div class="feature-media">
+              <img src="images/why-photos.jpg" alt="FREE Pro Photos">
+            </div>
+            <div class="feature-text">
+              <h3>Capture Every Moment<br />FREE Pro Photos</h3>
+              <p>Don't let epic moments slip away! We provide complimentary high-quality photography and videography
+                throughout your trip, capturing your legendary battle against the waves — priceless memories at no extra
+                cost.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ★ Book Your Adventure CTA Button ★ -->
+        <div style="text-align: center; margin: 5rem 2rem 0;">
+          <a href="#footer" class="scrolly book-cta-btn" style="
+            display: inline-block;
+            font-family: inherit;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #ffffff !important;
+            text-decoration: none;
+            border: 3px solid #ffffff !important;
+            border-bottom: 3px solid #ffffff !important;
+            padding: 0.5rem 3rem;
+            background: transparent;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+          ">
+            Book Your Adventure
+          </a>
+        </div>
+
+      </section>
+
+      <section id="about-section" class="about-section">
+
+        <header class="major">
+          <h2>Meet the Witin Waters Team</h2>
+          <p>We are a family of local guides born in Bujagali and raised on the White Nile.<br />
+            With over a decade of whitewater experience, we deliver the most thrilling yet safest adventures.</p>
+        </header>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="images/team-witin.jpg" alt="Basoga Witin">
+            <h3>Basoga Witin</h3>
+            <div class="role">Head Team Leader</div>
+          </div>
+
+          <div class="team-member">
+            <img src="images/team-peter.jpg" alt="Emoti Peter">
+            <h3>Emoti Peter</h3>
+            <div class="role">Team Leader & Media</div>
+          </div>
+
+          <div class="team-member">
+            <img src="images/team-junior.jpg" alt="Junior">
+            <h3>Junior</h3>
+            <div class="role">Senior Guide</div>
+          </div>
+
+          <div class="team-member">
+            <img src="images/team-amos.jpg" alt="Amos">
+            <h3>Amos</h3>
+            <div class="role">Safety Kayaker</div>
+          </div>
+
+          <div class="team-member">
+            <img src="images/team-hamisi.jpg" alt="Hamisi">
+            <h3>Hamisi</h3>
+            <div class="role">Safety Kayaker</div>
+          </div>
+
+          <div class="team-member">
+            <img src="images/team-Noodin.jpg" alt="Noodin">
+            <h3>Noodin</h3>
+            <div class="role">Safety Kayaker</div>
+          </div>
+        </div>
+
+        <div class="community-section">
+          <div class="community-header">
+            <h2>Empowering Local Youth<br />Rooted in Community</h2>
+            <p style="margin-top: 1rem;">Beyond guiding adventurers from around the world, we believe in the power of
+              giving back.<br />Witin and Peter are dedicated to providing free kayaking lessons to local youth, giving
+              them a valuable skill for life. Last year, we successfully hosted a major community competition, nurturing
+              the next generation of champions on this river!</p>
+          </div>
+
+          <div class="media-grid">
+            <div class="media-item">
+              <img src="images/community-lesson.jpg" alt="Free Community Kayaking Lesson">
+            </div>
+            <div class="media-item">
+              <img src="images/community-comp.jpg" alt="Local Community Competition">
+            </div>
+
+            <div class="media-item">
+              <iframe src="https://www.youtube.com/embed/R88Y6V9bsw4" title="Witin Waters Community Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="media-item">
+              <img src="images/community-smile.jpg" alt="Future Stars of the White Nile">
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <footer id="footer">
+      <section>
+        <form id="booking-form" method="post" action="#">
+          <div class="fields">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="text" name="phone" id="phone" required />
+            </div>
+            <div class="field">
+              <label for="user-email">Email</label>
+              <input type="email" name="email" id="user-email" required />
+            </div>
+            <div class="field">
+              <label for="date">Travel Date</label>
+              <input type="date" name="date" id="date" required />
+            </div>
+            <div class="field">
+              <label for="people">Number of People</label>
+              <input type="number" name="people" id="people" min="1" required />
+            </div>
+          </div>
+          <ul class="actions">
+            <li><button type="submit" id="submit-btn" class="primary">Confirm My Booking</button></li>
+          </ul>
+        </form>
+      </section>
+
+      <section class="split contact">
+        <section class="alt">
+          <h3>Address</h3>
+          <p>Bujagali, Jinja<br />
+            Uganda, East Africa</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.4842105263158!2d33.164972!3d0.485833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMjknMDkuMCJOIDMzwrAwOSc1My45IkU!5e0!3m2!1szh-TW!2stw!4v1234567890123"
+            width="100%" height="220"
+            style="border:0; border-radius: 8px; margin-top: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <section>
+          <h3>Phone / WhatsApp</h3>
+          <p><a href="tel:+256759476443">+256 759 476443</a></p>
+        </section>
+        <section>
+          <h3>Email</h3>
+          <p><a href="mailto:basogawitin34@gmail.com">basogawitin34@gmail.com</a></p>
+        </section>
+        <section>
+          <h3>Social</h3>
+          <ul class="icons alt">
+            <li><a href="https://www.facebook.com/profile.php?id=100076788665963" target="_blank"
+                rel="noopener noreferrer" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a>
+            </li>
+            <li><a href="https://www.instagram.com/basogawitin/" target="_blank" rel="noopener noreferrer"
+                class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+          </ul>
+        </section>
+      </section>
+    </footer>
+
+    <div id="copyright">
+      <ul>
+        <li>© Witin Waters Rafting</li>
+        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ★ Back to Top Floating Button (centered on the right side) ★ -->
+  <a href="#intro" id="back-to-top" class="scrolly" title="Back to Top" style="
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-bottom: none !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  " onmouseover="this.style.backgroundColor='rgba(255,255,255,0.55)'; this.style.transform='translateY(-50%) scale(1.1)';"
+    onmouseout="this.style.backgroundColor='rgba(255,255,255,0.35)'; this.style.transform='translateY(-50%) scale(1)';">
+    <i class="icon solid fa-arrow-up"></i>
+  </a>
+
+
+  <script>
+    // Show back-to-top button after scrolling a certain distance
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) {
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+        } else {
+          btn.style.opacity = '0';
+          btn.style.pointerEvents = 'none';
+        }
+      });
+    })();
+  </script>
+
+  <a href="https://wa.me/256759476443" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="icon brands fa-whatsapp"></i>
+  </a>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.innerText = 'Sending...';
+      submitBtn.disabled = true;
+
+      // ★★★ Remember to replace this with your real GAS URL ★★★
+      const gasAPI = 'https://script.google.com/macros/s/AKfycbxeTOhypo9vvalW29udb-CsxoJ3KH_y3_d-_4nhb1oQBFZ57WiSdigOEHryP7ut-7na/exec';
+
+      const formData = new FormData(form);
+      fetch(gasAPI, { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.message);
+            form.reset();
+          } else { alert('Error: ' + data.message); }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Something went wrong. Please WhatsApp us directly!');
+        })
+        .finally(() => {
+          submitBtn.innerText = 'Confirm My Booking';
+          submitBtn.disabled = false;
+        });
+    });
+  </script>
+</body>
+
+</html>
